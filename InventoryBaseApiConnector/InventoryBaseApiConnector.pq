@@ -21,9 +21,11 @@ scopes = {
 };
 
 [DataSource.Kind="InventoryBaseApiConnector", Publish="InventoryBaseApiConnector.Publish"]
-shared InventoryBaseApiConnector.Contents = (url as text) =>
+shared InventoryBaseApiConnector.Contents = (baseurl as text, optional options as nullable record) =>
     let
-        source = Json.Document(Web.Contents(url))
+
+//         url = Text.Combine({baseurl, "/",relativePath,"/?", query}),
+        source = Json.Document(Web.Contents(baseurl,options))
     in
         source; 
 
