@@ -93,7 +93,7 @@ Logout = (token) => logout_uri;
 TokenMethod = (grantType, tokenField, code) =>
     let
         queryString = [
-            grant_type = "authorization_code",
+            grant_type = grantType,
             redirect_uri = redirect_uri,
             client_id = client_id,
             client_secret = client_secret
